@@ -1,0 +1,111 @@
+#loginform {
+  margin-top: 0px;
+  background-image: url('../img/loginform.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#regform {
+  margin-top: 0px;
+  background-image: url('../img/regform.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+#newprof {
+
+  margin-top: 0px;
+  background-image: url('../img/profform.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+   /* background-attachment:fixed; */
+}
+
+#newfirm {
+  margin-top: 0px;
+  background-image: url('../img/firmform.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#newdemand {
+  margin-top: 0px;
+  background-image: url('../img/loginform.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#newaff {
+  margin-top: 0px;
+  background-image: url('../img/demandform.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.form-text{
+  display: none!important;
+}
+
+label {
+  color: #FFFFFF;
+}
+
+input[type="password"] {
+  background: rgba(0, 0, 0, 0);
+    /* border: none; */
+    outline: none;
+}
+
+
+
+input[type="text"] {
+  background: rgba(0, 0, 0, 0);
+    /* border: none; */
+    outline: none;
+}
+
+input[type="email"] {
+  background: rgba(0, 0, 0, 0);
+    /* border: none; */
+    outline: none;
+}
+
+textarea[name="body"] {
+  background: rgba(0, 0, 0, 0);
+    /* border: none; */
+    outline: none;
+}
+
+
+
+
+
+
+
+
+#createbform {
+  background-color: rgb(0, 0, 0, 0.5);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.card {
+  background-color: rgb(0, 0, 0, 0.5);
+}
