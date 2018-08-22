@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mpesapy',
     'review',
     'tinymce',
     'bootstrap4',

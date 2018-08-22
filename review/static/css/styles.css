@@ -1,3 +1,130 @@
+/* html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+/* body {
+  cursor: crosshair;
+  font-family: poppins;
+  background: url(hero.jpg) no-repeat 50% 50%;
+} */
+
+.main-page {
+  width: 100%;
+  margin-top: 22%;
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0%;
+  left: 0%;
+ /* transform: translate(100, 100); */
+}
+
+/* .content h1 {
+  font-family: Poppins;
+  font-size: 54px;
+  color: #101010;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.content p {
+  margin-top: 0;
+  text-align: left;
+  color: #101010;
+  font-weight: 400;
+} */
+
+.overlay-2 {
+  margin: 0;
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0%;
+  left: 0%;
+  background: #ffffff;
+}
+
+.overlay {
+  margin: 0;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0%;
+  left: 0%;
+}
+
+/* .overlay p {
+  font-size: 300px;
+  font-weight: 800;
+} */
+
+.screen {
+  color: #ffffff;
+  font-family: Poppins;
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#myBtn {
+  font-family: Poppins;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ /* button {
+  display: block;
+  padding: 24px 48px;
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: #fff;
+  border: 2px slid #fff;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  background: none;
+  z-index: 1;
+  cursor: crosshair;
+  transition: 0.8s ease-out;
+}  */
+
+#myBtn:hover {
+  color: #101010;
+  cursor: crosshair;
+}
+
+#myBtn:before {
+  content:"";
+  position: absolute;
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  transition: top 0.8s ease-out;
+}
+
+
+#myBtn:hover:before{
+  top: 0;
+
+}
+
+
+
 #loginform {
   margin-top: 0px;
   background-image: url('../img/loginform.jpg');
@@ -22,8 +149,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-   /* background-attachment:fixed; */
-}
+   /* background-attachment:fixed; */ }
 
 #newfirm {
   margin-top: 0px;
@@ -49,40 +175,43 @@
   background-attachment: fixed;
 }
 
-.form-text{
+ .form-text{
   display: none!important;
 }
 
-label {
+ label {
   color: #FFFFFF;
 }
 
-input[type="password"] {
-  background: rgba(0, 0, 0, 0);
+ input[type="password"] {
+  background: rgba(0, 0, 0, 0); */
     /* border: none; */
-    outline: none;
+     outline: none;
 }
 
 
 
-input[type="text"] {
-  background: rgba(0, 0, 0, 0);
+ input[type="text"] {
+  background: rgba(0, 0, 0, 0); */
     /* border: none; */
-    outline: none;
+     outline: none;
 }
 
-input[type="email"] {
-  background: rgba(0, 0, 0, 0);
+ input[type="email"] {
+  background: rgba(0, 0, 0, 0); */
     /* border: none; */
-    outline: none;
+     outline: none;
 }
 
-textarea[name="body"] {
-  background: rgba(0, 0, 0, 0);
+ textarea[name="body"] {
+  background: rgba(0, 0, 0, 0); */
     /* border: none; */
-    outline: none;
+     outline: none;
 }
 
+/* .container-fluid {
+  margin-top: 0px;
+} */
 
 
 
@@ -90,7 +219,8 @@ textarea[name="body"] {
 
 
 
-#createbform {
+
+ #createbform {
   background-color: rgb(0, 0, 0, 0.5);
 
 }
@@ -106,6 +236,6 @@ textarea[name="body"] {
 
 
 
-.card {
+ .card {
   background-color: rgb(0, 0, 0, 0.5);
 }
