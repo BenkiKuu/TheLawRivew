@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^',include('review.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
+    url(r'^mpesapy/',include('mpesapy.urls'))
 ]

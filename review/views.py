@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import NewProfileForm, NewLawFirmForm, NewDemandLetterForm, NewAfidavitForm
 from .models import Profile
 
@@ -43,9 +43,9 @@ def new_demand(request):
         form = NewDemandLetterForm(request.POST, request.FILES)
         if form.is_valid():
             demand = form.save(commit=False)
-            demand.user = current_user
+            demand.user = current_user.profile
             demand.save()
-            return redirect('home')
+            return redirect('new_demand_temp')
     else:
         form = NewDemandLetterForm()
     return render(request, 'forms/demand_letter.html', {"form": form})
@@ -67,3 +67,7 @@ def new_aff(request):
 def profile(request, profile_id):
     profile = Profile.objects.filter(user_id=profile_id).first()
     return render(request, 'profile.html', locals())
+
+def demand_tmp(request):
+    affs = request.user.profile.legals.all()
+    return render(request, 'documents/demand_letter_doc.html', locals())

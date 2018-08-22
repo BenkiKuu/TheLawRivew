@@ -13,6 +13,7 @@ urlpatterns=[
     url(r'^new_firm/$', views.new_firm, name='new_firm'),
     url(r'^new_demand/$', views.new_demand, name='new_demand'),
     url(r'^new_aff/$', views.new_aff, name='new_aff'),
+    url(r'^new_demand_doc/$', views.demand_tmp, name='new_demand_temp'),
 
 
 
