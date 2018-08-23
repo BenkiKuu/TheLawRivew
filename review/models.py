@@ -48,8 +48,13 @@ class Affidavit(models.Model):
         self.delete()
 
 class DemandLetter(models.Model):
-    title = models.CharField(max_length=250)
-    body = models.TextField()
+    firstname = models.CharField(max_length=250, null = True)
+    sirname = models.CharField(max_length=250, null = True)
+    othernames = models.CharField(max_length=250, null = True)
+    idnumber = models.IntegerField(null = True)
+    boxnumber = models.IntegerField(null = True)
+    town = models.CharField(max_length=250, null = True)
+    # dob = models.DateTimeField(null = True)
     user = models.ForeignKey(Profile, related_name='legals')
 
     def __str__(self):
