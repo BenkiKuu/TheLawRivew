@@ -37,6 +37,7 @@ class Affidavit(models.Model):
     name = models.CharField(max_length=250)
     user = models.ForeignKey(User)
     doc = models.ForeignKey(Profile)
+    
 
     def __str__(self):
         return self.title
@@ -58,7 +59,7 @@ class DemandLetter(models.Model):
     user = models.ForeignKey(Profile, related_name='legals')
 
     def __str__(self):
-        return self.title
+        return self.firstname
 
     def save_demandletter(self):
         self.save()
@@ -74,7 +75,7 @@ class LawFirms(models.Model):
     user = models.ForeignKey(User)
 
     def __str__(self):
-        return self.title
+        return self.name
 
     def save_document(self):
         self.save()

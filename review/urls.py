@@ -14,6 +14,7 @@ urlpatterns=[
     url(r'^new_demand/$', views.new_demand, name='new_demand'),
     url(r'^new_aff/$', views.new_aff, name='new_aff'),
     url(r'^new_demand_doc/$', views.demand_tmp, name='new_demand_temp'),
+    url(r'^africasTalking/$', views.africa_talking, name='africa-talking'),
 
 
 
