@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import NewProfileForm, NewLawFirmForm, NewDemandLetterForm, NewAfidavitForm
-from .models import Profile
+from .models import Profile ,Test
 from africastalking.AfricasTalkingGateway import (AfricasTalkingGateway, AfricasTalkingGatewayException)
 
 # Create your views here.
@@ -75,17 +75,19 @@ def profile(request, profile_id):
 
 def africa_talking(request):
     # Specify your login credentials
-    # username = "Max_.h"
-    # apikey   = "cd06068afc592bedeed691307b41fe44e003f68e6521fa37614afdbc9b5a39ac"
-    username = "sandbox"
-    apikey   = "54a2cd06ea9b6118b691567a856ab4b92eeb3621e1b753e5f26815c967f44072"
+    username = "Max_.h"
+    apikey   = "f1a6ba50ce51661217ae402cb0ef406f6c4f2c8b8121e72bd0e898e61f3dcb58"
+    # username = "sandbox"
+    # apikey   = "f1a6ba50ce51661217ae402cb0ef406f6c4f2c8b8121e72bd0e898e61f3dcb58"
     # Specify the numbers that you want to send to in a comma-separated list
     # Please ensure you include the country code (+254 for Kenya)
-    to      = "+254716280403,+254724401515"
+    to      = "+254716280403"
     # And of course we want our recipients to know what we really do
-    message = "I'm a lumberjack and it's ok, I sleep all night and I work all day"
+    test = Test.objects.all()[0].name
+
+    message = f"It's Max {test}"
     # Create a new instance of our awesome gateway class
-    gateway = AfricasTalkingGateway(username, apikey, "sandbox")
+    gateway = AfricasTalkingGateway(username, apikey, )
     #*************************************************************************************
     #  NOTE: If connecting to the sandbox:
     #
@@ -110,4 +112,4 @@ def africa_talking(request):
     except AfricasTalkingGatewayException as e:
         print('Encountered an error while sending: %s' % str(e))
 
-    return HttpResponse("wohoo!!")
+    return HttpResponse("Message sent!!")

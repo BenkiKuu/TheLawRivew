@@ -31,6 +31,12 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
 
+class Test(models.Model):
+    name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
 
 class Affidavit(models.Model):
     title = models.CharField(max_length=250)
