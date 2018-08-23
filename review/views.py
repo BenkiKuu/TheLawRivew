@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import NewProfileForm, NewLawFirmForm, NewDemandLetterForm, NewAfidavitForm
-from .models import Profile
+from .models import Profile, DemandLetter
 from africastalking.AfricasTalkingGateway import (AfricasTalkingGateway, AfricasTalkingGatewayException)
 from .utility import generateUniqueKey
 # Create your views here.
@@ -86,7 +86,8 @@ def africa_talking(request):
     # Please ensure you include the country code (+254 for Kenya)
     to      = "+254716280403,+254724401515"
     # And of course we want our recipients to know what we really do
-    message = "code"
+    
+    message = "random txt"
     # Create a new instance of our awesome gateway class
     gateway = AfricasTalkingGateway(username, apikey, "sandbox")
     #*************************************************************************************
