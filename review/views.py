@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .forms import NewProfileForm, NewLawFirmForm, NewDemandLetterForm, NewAfidavitForm
 from .models import Profile
 from africastalking.AfricasTalkingGateway import (AfricasTalkingGateway, AfricasTalkingGatewayException)
-
+from .utility import generateUniqueKey
 # Create your views here.
 def home(request):
     # NewProfileForm=form
@@ -46,7 +46,9 @@ def new_demand(request):
         if form.is_valid():
             demand = form.save(commit=False)
             demand.user = current_user.profile
+            demand.unique_key = generateUniqueKey()
             demand.save()
+            
             return redirect('new_demand_temp')
     else:
         form = NewDemandLetterForm()

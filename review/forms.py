@@ -15,12 +15,12 @@ class NewProfileForm(forms.ModelForm):
 class NewAfidavitForm(forms.ModelForm):
     class Meta:
         model = Affidavit
-        exclude = ['user', 'doc']
+        exclude = ['user', 'doc',]
 
 class NewDemandLetterForm(forms.ModelForm):
     class Meta:
         model = DemandLetter
-        exclude = ['user', 'doc']
+        exclude = ['user', 'doc','unique_key']
 
 
 class NewLawFirmForm(forms.ModelForm):

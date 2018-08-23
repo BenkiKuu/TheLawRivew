@@ -55,6 +55,7 @@ class DemandLetter(models.Model):
     idnumber = models.IntegerField(null = True)
     boxnumber = models.IntegerField(null = True)
     town = models.CharField(max_length=250, null = True)
+    unique_key = models.CharField(max_length=10)
     # dob = models.DateTimeField(null = True)
     user = models.ForeignKey(Profile, related_name='legals')
 
