@@ -2,12 +2,12 @@
 from AfricasTalkingGateway import AfricasTalkingGateway, AfricasTalkingGatewayException
 # Specify your login credentials
 username = "maxwellharon"
-apikey   = "cd06068afc592bedeed691307b41fe44e003f68e6521fa37614afdbc9b5a39ac"
+apikey   = "f1a6ba50ce51661217ae402cb0ef406f6c4f2c8b8121e72bd0e898e61f3dcb58"
 # Specify the numbers that you want to send to in a comma-separated list
 # Please ensure you include the country code (+254 for Kenya)
 to      = "+254716280403,+254724401515"
 # And of course we want our recipients to know what we really do
-message = "I'm a lumberjack and it's ok, I sleep all night and I work all day"
+message = "I'm Max and it's ok, I sleep all night and I work all day"
 # Create a new instance of our awesome gateway class
 gateway = AfricasTalkingGateway(username, apikey)
 #*************************************************************************************
