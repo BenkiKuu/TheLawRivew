@@ -16,14 +16,15 @@ def save_user_profile(sender, instance, **kwargs):
    instance.profile.save()
 
 class Profile(models.Model):
-    name = models.CharField(max_length=250)
-    profile_photo = models.ImageField(upload_to='images/')
-    bio = models.CharField(max_length=300)
-    user = models.OneToOneField(User)
+    first_name = models.CharField(max_length=250, default="")
+    last_name = models.CharField(max_length=250, default="")
     email = models.EmailField(null = True)
+    id_number = models.IntegerField(default='0')
+    phone_number = models.IntegerField(default='0')
+    user = models.OneToOneField(User)
 
     def __str__(self):
-        return self.name
+        return self.first_name
 
     def save_profile(self):
         self.save()

@@ -7,10 +7,7 @@ class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user']
-        widgets = {
-            # 'tags': forms.CheckboxSelectMultiple(),
-        }
-
+    
 
 class NewAfidavitForm(forms.ModelForm):
     class Meta:

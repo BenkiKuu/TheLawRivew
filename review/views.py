@@ -10,14 +10,15 @@ def home(request):
 #
 def new_profile(request):
     current_user = request.user
-
+    user_profile = Profile.objects.filter(user_id=current_user)
+    form = NewProfileForm()
     if request.method == 'POST':
-        form = NewProfileForm(request.POST, request.FILES)
+        form = NewProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = current_user
-            profile.save()
-            return redirect('home')
+            user_profile = form.save(commit=False)
+            user_profile.user = current_user
+            user_profile.save()
+            return redirect('index')
     else:
         form = NewProfileForm()
     return render(request, 'forms/new_profile.html', {"form": form})
@@ -47,7 +48,11 @@ def new_demand(request):
             demand.save()
             return redirect('new_demand_temp')
     else:
-        form = NewDemandLetterForm()
+        form = NewDemandLetterForm(initial={
+            'firstname': request.user.profile.first_name,
+            'sirname': request.user.profile.last_name,
+            'idnumber': request.user.profile.id_number,
+        })
     return render(request, 'forms/demand_letter.html', {"form": form})
 
 def new_aff(request):
