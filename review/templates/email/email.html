@@ -1,9 +1,3 @@
-{% extends 'documents/base.html' %}
-{% load bootstrap4 %}
-{% block content %}
-
-{% for af in affs %}
-
 <div class="container-fluid">
 
 </div>
@@ -14,8 +8,8 @@ THE MATTER OF REGISTRATION OF PERSONS AND IN THE MATTER OF
 CLARIFICATION OF DATE OF BIRTH</b></u></font></font></p>
 <p align="center" style="margin-bottom: 0.11in; line-height: 150%"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><u><b>AFFIDAVIT</b></u></font></font></p>
 <p align="justify" style="margin-bottom: 0.11in; line-height: 150%"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">I
-{{af.firstname}} {{af.othernames}} {{af.sirname}}, an adult of sound mind of Identity Card Number
-{{af.idnumber}} and of Post Office Box Number {{af.boxnumber}}, {{af.town}} in the Republic of
+{{firstname}} {{othernames}} {{sirname}}, an adult of sound mind of Identity Card Number
+{{idnumber}} and of Post Office Box Number {{boxnumber}}, {{town}} in the Republic of
 Kenya, do swear and make oath as follows:</font></font></p>
 <ol>
 	<li/>
@@ -121,9 +115,3 @@ O BOX 52046-00100,</font></font></p>
 
 </p>
 </div>
-
-Dear ,
-fdujuf{{ af.body }}
-{% endfor %}
-
-{% endblock %}

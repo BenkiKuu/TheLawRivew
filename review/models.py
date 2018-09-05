@@ -5,6 +5,7 @@ from tinymce.models import HTMLField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 # Create your models here.
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -16,9 +17,14 @@ def save_user_profile(sender, instance, **kwargs):
    instance.profile.save()
 
 class Profile(models.Model):
-    name = models.CharField(max_length=250)
+    firstname = models.CharField(max_length=250, null = True)
+    sirname = models.CharField(max_length=250, null = True)
+    othernames = models.CharField(max_length=250, null = True)
     profile_photo = models.ImageField(upload_to='images/')
-    bio = models.CharField(max_length=300)
+    idnumber = models.IntegerField(null = True)
+    boxnumber = models.IntegerField(null = True)
+    town = models.CharField(max_length=250, null = True)
+    phione_number = models.IntegerField(null = True)
     user = models.OneToOneField(User)
     email = models.EmailField(null = True)
 
@@ -54,8 +60,9 @@ class DemandLetter(models.Model):
     idnumber = models.IntegerField(null = True)
     boxnumber = models.IntegerField(null = True)
     town = models.CharField(max_length=250, null = True)
-    # dob = models.DateTimeField(null = True)
+    dob = models.DateField(null = True)
     user = models.ForeignKey(Profile, related_name='legals')
+    email = models.EmailField(null = True)
 
     def __str__(self):
         return self.title

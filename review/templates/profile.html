@@ -1,58 +1,15 @@
-{%extends "base.html" %}
+{% extends 'navbar.html' %}
 {% load bootstrap4 %}
-{% load staticfiles %}
+{% load static %}
 {% block content %}
-    <div class="container">
-        <div class="row profile-header">
-
-            <div class="col-md-1">
-                {#                an empty div for alignment#}
-            </div>
-
-
-            {#        profil photo#}
-            
-            <div class="col-md-3 text-center">
-                <img class="img-fluid img-circle" src="{{ profile.profile_photo.url }}" alt="{{ user }}">
-            </div>
-
-
-
-            {#        end of profile of photo #}
-
-
-            <div class="col-md-4 in-profile-header">
-                <div class="row ">
-                    <h2>{{ user }}</h2>
-
-                </div>
-
-                {#                ............................counters for posts followers and people being followed ................................#}
-
-
-                {#                end of counters#}
-
-                <br>
-                {#                bio#}
-
-                <div class="row bio-profile ">
-                    <p>{{ profile.bio }}</p>
-                    {{profile.email}}
-                </div>
-                {#                end of bio#}
-
-            </div>
-
-            <div class="col-md-4">
-                {#                an empty div for alignment#}
-            </div>
-
-        </div>
-        <br>
-        <br>
-        <hr>
-
-
-
-
+   <div class="container">
+     <div class="row ">
+       <h2>Hi,{{ user }}</h2>
+       <a href="{% url 'new_profile'  %}" class="btn btn-sm btn-success">Edit profile</a>
+     </div>
+     <br>
+     {% for profile in profile %}
+     {{profile.email}}
+     {% endfor %}
+   </div>
 {% endblock %}
