@@ -20,7 +20,7 @@ class NewAfidavitForm(forms.ModelForm):
 class NewDemandLetterForm(forms.ModelForm):
     class Meta:
         model = DemandLetter
-        exclude = ['user', 'doc', 'dob']
+        exclude = ['user', 'doc', 'dob', 'uniquekey']
 
 
 class NewLawFirmForm(forms.ModelForm):

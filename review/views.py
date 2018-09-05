@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import NewProfileForm, NewLawFirmForm, NewDemandLetterForm, NewAfidavitForm
-from .models import Profile
+from .models import Profile, DemandLetter
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .email import email_doc
 import qrcode
+from . utility import generateUniqueKey
 
 # Create your views here.
 def home(request):
@@ -49,6 +50,7 @@ def new_demand(request):
         if form.is_valid():
             demand = form.save(commit=False)
             demand.user = current_user.profile
+            demand.uniquekey = generateUniqueKey()
             demand.save()
             # firstname = form.cleaned_data['firstname']
             # sirname = form.cleaned_data['sirname']
