@@ -3,6 +3,7 @@ from .forms import NewProfileForm, NewLawFirmForm, NewDemandLetterForm, NewAfida
 from .models import Profile
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .email import email_doc
+import qrcode
 
 # Create your views here.
 def home(request):
@@ -111,3 +112,7 @@ def profile(request, profile_id):
 def demand_tmp(request):
     affs = request.user.profile.legals.all()
     return render(request, 'documents/demand_letter_doc.html', locals())
+
+def qrcodes(request):
+
+   return render(request, 'qrcode.html')

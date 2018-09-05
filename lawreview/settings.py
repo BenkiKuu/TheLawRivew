@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'mpesapy',
     'review',
+    'qr_code',
     'tinymce',
     'bootstrap4',
     'django.contrib.admin',
