@@ -7,9 +7,9 @@ class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user']
-        widgets = {
-            # 'tags': forms.CheckboxSelectMultiple(),
-        }
+        # widgets = {
+        #     # 'tags': forms.CheckboxSelectMultiple(),
+        # }
 
 
 class NewAfidavitForm(forms.ModelForm):
@@ -20,7 +20,7 @@ class NewAfidavitForm(forms.ModelForm):
 class NewDemandLetterForm(forms.ModelForm):
     class Meta:
         model = DemandLetter
-        exclude = ['user', 'doc']
+        exclude = ['user', 'doc', 'dob']
 
 
 class NewLawFirmForm(forms.ModelForm):

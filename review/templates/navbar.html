@@ -1,5 +1,4 @@
-{% load bootstrap4 %}
-{% load static %}
+{% load bootstrap4 %} {% load static %}
 
 
 <!DOCTYPE html>
@@ -7,17 +6,15 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>LAW REVIEW</title>
+ <title>LEGAL ASSIST</title>
 
-  <!-- Styles -->
-  {% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/basephoto.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed" rel="stylesheet">
-  {% endblock styles %}
+ <!-- Styles -->
+ {% block styles %} {% bootstrap_css %}
+ <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+ <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed" rel="stylesheet"> {% endblock styles %}
 </head>
 
 <body>
@@ -45,7 +42,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'new_firm' %}">Register new Law Firm</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'new_demand' %}">Generate a Demand Letter</a>
+              <a class="dropdown-item" href="{% url 'new_demand' %}">Generate An Id Information Affidavit</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/profile/{{user.profile.id}}">Profile</a>
               <div class="dropdown-divider"></div>
@@ -73,21 +70,23 @@
   </nav>
   </header>
 
-  {% block scripts %}
-     <!-- AJAX -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-     {% bootstrap_javascript %}
-     <script src="{% static 'js/scripts.js' %}"></script>
-     <!-- <script>
-        function myFunction() {
-          var copyText = document.getElementById("link");
-          copyText.select();
-          document.execCommand("Copy");
-          alert("Copied the text: " + copyText.value);
-        }
-    </script> -->
-  {% endblock scripts %}
+    {% block content %}{% endblock %}
+    {% block scripts %}
+    <!-- AJAX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    {% bootstrap_javascript %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <!-- <script>
+      function myFunction() {
+        var copyText = document.getElementById("link");
+        copyText.select();
+        document.execCommand("Copy");
+        alert("Copied the text: " + copyText.value);
+      }
+  </script> -->
+    {% endblock scripts %}
 
   </body>
 
