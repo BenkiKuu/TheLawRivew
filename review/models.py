@@ -63,6 +63,7 @@ class DemandLetter(models.Model):
     dob = models.DateField(null = True)
     user = models.ForeignKey(Profile, related_name='legals')
     email = models.EmailField(null = True)
+    uniquekey = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.title

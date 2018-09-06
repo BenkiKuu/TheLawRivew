@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import NewProfileForm, NewLawFirmForm, NewDemandLetterForm, NewAfidavitForm
-from .models import Profile
+from .models import Profile, DemandLetter
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .email import email_doc
 import qrcode
+from . utility import generateUniqueKey
+from africastalking.AfricasTalkingGateway import (AfricasTalkingGateway, AfricasTalkingGatewayException)
 
 # Create your views here.
 def home(request):
@@ -49,6 +51,7 @@ def new_demand(request):
         if form.is_valid():
             demand = form.save(commit=False)
             demand.user = current_user.profile
+            demand.uniquekey = generateUniqueKey()
             demand.save()
             # firstname = form.cleaned_data['firstname']
             # sirname = form.cleaned_data['sirname']
@@ -116,3 +119,45 @@ def demand_tmp(request):
 def qrcodes(request):
 
    return render(request, 'qrcode.html')
+
+
+def africa_talking(request):
+    # Specify your login credentials
+    username = "Max_.h"
+    apikey   = "cd06068afc592bedeed691307b41fe44e003f68e6521fa37614afdbc9b5a39ac"
+    # username = "sandbox"
+    # apikey   = "54a2cd06ea9b6118b691567a856ab4b92eeb3621e1b753e5f26815c967f44072"
+    # Specify the numbers that you want to send to in a comma-separated list
+    # Please ensure you include the country code (+254 for Kenya)
+    
+    to      = "+254716280403,+254724401515"
+    # And of course we want our recipients to know what we really do
+    
+    message = "random txt"
+    # Create a new instance of our awesome gateway class
+    gateway = AfricasTalkingGateway(username, apikey, "sandbox")
+    #*************************************************************************************
+    #  NOTE: If connecting to the sandbox:
+    #
+    #  1. Use "sandbox" as the username
+    #  2. Use the apiKey generated from your sandbox application
+    #     https://account.africastalking.com/apps/sandbox/settings/key
+    #  3. Add the "sandbox" flag to the constructor
+    #
+    #  gateway = AfricasTalkingGateway(username, apiKey, "sandbox");
+    #**************************************************************************************
+    # Any gateway errors will be captured by our custom Exception class below,
+    # so wrap the call in a try-catch block
+    try:
+        # Thats it, hit send and we'll take care of the rest.
+
+        results = gateway.sendMessage(to, message)
+        print(results)
+
+        for recipient in results:
+            # status is either "Success" or "error message"
+            print('number= %s;status= %s;statusCode= %s;messageId= %s;cost= %s' % (recipient['number'], recipient['status'], recipient['statusCode'], recipient['messageId'], recipient['cost']))
+    except AfricasTalkingGatewayException as e:
+        print('Encountered an error while sending: %s' % str(e))
+
+    return HttpResponse("message succesfully sent")
